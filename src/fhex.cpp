@@ -970,11 +970,7 @@ void Fhex::compare(QString filename) {
 void Fhex::on_menu_file_save_click() {
     if (this->hexEditor->getCurrentPath() != "") {
         this->statusBar.setText("Saving file..");
-        if (this->qhex->isModified()) {
-            saveDataToFile(this->hexEditor->getCurrentPath());
-        } else {
-            this->statusBar.setText("No changes were made");
-        }
+        saveDataToFile(this->hexEditor->getCurrentPath());
     } else {
         this->on_menu_file_save_as_click();
     }
