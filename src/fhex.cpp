@@ -1189,15 +1189,18 @@ void Fhex::on_convert_button_click() {
     if (selected_bytes == 4) {
         char timedisplay[100] = {0,};
         const long time = revData.toLong(nullptr, 16);
+        const long long time = revData.toLongLong(nullptr, 16);
         if (std::strftime(timedisplay, sizeof(timedisplay), "%d/%m/%Y %H:%M:%S ", std::localtime(&time))) {
             out += "<hr>Unix Time:<br><b>" + QString(timedisplay) + "</b>";
         }
     } else if (selected_bytes == 8) {
         char timedisplay[100] = {0,};
+        // unsigned long wtime = revData.toLong(nullptr, 16);
         unsigned long wtime = revData.toLong(nullptr, 16);
         //Convert windows time to unix timestamp
         wtime = (wtime / 10000000) - 11644473600LL;
-        const long time = wtime;
+        // const long time = wtime;
+        const long long time = wtime;
         if (std::strftime(timedisplay, sizeof(timedisplay), "%d/%m/%Y %H:%M:%S ", std::localtime(&time))) {
             out += "<hr>Windows File Time:<br><b>" + QString(timedisplay) + "</b>";
         }
