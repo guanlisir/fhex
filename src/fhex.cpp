@@ -1188,7 +1188,7 @@ void Fhex::on_convert_button_click() {
     out += "<hr>Decimal Unsigned Long:<br><b>" + QString::number(revData.toULong(nullptr, 16)) + "</b>";
     if (selected_bytes == 4) {
         char timedisplay[100] = {0,};
-        const long time = revData.toLong(nullptr, 16);
+        // const long time = revData.toLong(nullptr, 16);
         const long long time = revData.toLongLong(nullptr, 16);
         if (std::strftime(timedisplay, sizeof(timedisplay), "%d/%m/%Y %H:%M:%S ", std::localtime(&time))) {
             out += "<hr>Unix Time:<br><b>" + QString(timedisplay) + "</b>";
