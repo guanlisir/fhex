@@ -71,7 +71,7 @@ jobs:
       run: |
         windeployqt %BUNDLE_DIR%\fhex.exe --no-angle --no-opengl-sw
     - name: Upload the binary artifact
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: windows-build
         path: ${{env.BUNDLE_DIR}}
